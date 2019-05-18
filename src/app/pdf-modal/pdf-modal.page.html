@@ -1,0 +1,17 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-button (click)="myDismiss()">schliessen</ion-button>
+      </ion-buttons>
+      <ion-title>{{titel}}</ion-title>
+    </ion-toolbar>
+  
+  </ion-header>
+
+<ion-content>
+  
+    <iframe [src]='sanitizer.bypassSecurityTrustResourceUrl(url)' frameborder="0"
+    webkitallowfullscreen mozallowfullscreen allowfullscreen>
+  </iframe>
+
+</ion-content>

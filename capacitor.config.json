@@ -1,0 +1,7 @@
+{
+  "appId": "io.schaffhausen.collect",
+  "appName": "shCollect",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www"
+}

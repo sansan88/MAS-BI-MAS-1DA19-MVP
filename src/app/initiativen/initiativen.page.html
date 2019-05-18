@@ -1,0 +1,140 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Initiativen
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+
+    <ion-list *ngIf="initiativen.length > 0">
+      <ion-card *ngFor="let initiative of initiativen" class="welcome-card" button>
+        <ion-img src="{{initiative.picture}}"></ion-img>
+        <ion-card-header (click)="openBrowser(initiative.link)">
+          <ion-card-subtitle>{{initiative.subtitel}}</ion-card-subtitle>
+          <ion-card-title>{{initiative.titel}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-textarea readonly autoGrow value="{{initiative.text}}" (click)="openBrowser(initiative.link)">
+
+          </ion-textarea>
+          <ion-row *ngIf="initiative.unterschriften" no-padding align-items-center>
+            <ion-col size="8">
+              <ion-badge color="primary">
+                {{initiative.unterschriften}}
+              </ion-badge>
+            </ion-col>
+            <!--<ion-col> </ion-col>-->
+            <ion-col size="4">
+              <ion-fab-button size="small" color="primary" (click)="support(initiative)">
+                <ion-icon size="small" name="rocket"></ion-icon>
+              </ion-fab-button>
+            </ion-col>
+
+          </ion-row>
+        </ion-card-content>
+        <!--
+      <ion-row no-padding justify-content-center>
+          <ion-col text-right size="4">
+            <ion-button fill="clear" size="small" color="secondary" (click)="openContact(speaker)">
+              <ion-icon name="information-circle" slot="start"></ion-icon>
+              details
+            </ion-button>
+          </ion-col>
+          <ion-col text-left size="4">
+            <ion-button fill="clear" size="small" color="secondary" (click)="goToSpeakerTwitter(speaker)">
+              <ion-icon name="create" slot="start"></ion-icon>
+              unterschreiben
+            </ion-button>
+          </ion-col>
+          <ion-col text-center size="4">
+            <ion-button fill="clear" size="small" color="secondary" (click)="openSpeakerShare(speaker)">
+              <ion-icon name="share-alt" slot="start"></ion-icon>
+              teilen
+            </ion-button>
+          </ion-col>
+        </ion-row>-->
+      </ion-card>
+    </ion-list>
+
+    <ion-list *ngIf="initiativen.length == 0">
+
+      <ion-card class="welcome-card">
+        <!-- <ion-img>
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-img>-->
+        <ion-card-header>
+          <ion-card-subtitle>
+            <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+          </ion-card-subtitle>
+          <ion-card-title>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-textarea readonly>
+            <ion-skeleton-text animated></ion-skeleton-text>
+            <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+            <ion-skeleton-text animated></ion-skeleton-text>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-textarea>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card class="welcome-card">
+        <!--<ion-img>
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </ion-img>-->
+        <ion-card-header>
+          <ion-card-subtitle>
+            <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+          </ion-card-subtitle>
+          <ion-card-title>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-textarea readonly>
+            <ion-skeleton-text animated></ion-skeleton-text>
+            <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+            <ion-skeleton-text animated></ion-skeleton-text>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-textarea>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card class="welcome-card">
+        <!--<ion-img>
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-img>-->
+        <ion-card-header>
+          <ion-card-subtitle>
+            <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+          </ion-card-subtitle>
+          <ion-card-title>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-textarea readonly>
+            <ion-skeleton-text animated></ion-skeleton-text>
+            <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+            <ion-skeleton-text animated></ion-skeleton-text>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-textarea>
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+
+  </ion-grid>
+
+</ion-content>
